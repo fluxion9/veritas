@@ -78,19 +78,38 @@ what if we redefine what a solution is:
 
 
 def balance(num):
-	hails = []
-	remainder = num
-	while remainder > 0:
-		if remainder % 2 == 0:
-			hails.append(remainder)
-			remainder = remainder / 2
-			if remainder == 1:
-				hails.append(remainder)
-			print(hails)
+    hails = []
+    remainder = num
+    while remainder > 0:
+        if remainder % 2 == 0:
+            hails.append(remainder)
+            remainder = remainder / 2
+            if remainder == 1:
+                hails.append(remainder)
+            print(hails)
+        else:
+            remainder = (3 * remainder) + 1
+    print('Done')
+    return 0
+#balance(1000)
+
+
+def bal(start):
+	if start != 0:
+		if isOdd(start % 2):
+			print(start / 2)
+			bal(start / 2)
 		else:
-			remainder = (3 * remainder) + 1
-	return 0
+			print((3 * start) + 1)
+			bal((3 * start) + 1)
+	return
 
 
+def isOdd(num):
+	if num % 2 == 0:
+		return True
+	else:
+		return False
+bal(100)
 
-balance(1000)
+
